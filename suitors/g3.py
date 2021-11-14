@@ -218,6 +218,7 @@ class Suitor(BaseSuitor):
         """
         self.day_count += 1
         if self.day_count >= self.first_pruning:
+            flower_counts = flower_counts.copy()  # patch for simulator's bug
             bouquets = learned_bouquets(self.bouquet_feedback, self.suitor_id, flower_counts)
         else:
             bouquets = list()
